@@ -1,3 +1,5 @@
+// FIX: Import `ComponentType` to resolve the "Cannot find namespace 'React'" error.
+import type { ComponentType } from 'react';
 
 export interface QuizQuestion {
   question: string;
@@ -14,7 +16,8 @@ export interface Topic {
   id: string;
   name: string;
   icon: string;
-  component: React.ComponentType<TopicComponentProps>;
+  // FIX: Use the imported `ComponentType` directly instead of `React.ComponentType`.
+  component: ComponentType<TopicComponentProps>;
   quizData?: QuizQuestion[];
 }
 
